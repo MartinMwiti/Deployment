@@ -1,0 +1,89 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #34495e;
+}
+.box{
+  width: 600px;
+  padding: 40px; /*For the inside contents*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);/*The -50% transform basically means, in simple words, "move this element left and upwards by 50% of the computed dimension along the axis". -50% along the x-axis means "move me leftwards by half my computed width", likewise for that in the y-axis. The reason why this is needed is because when setting top: 50%; left: 50% of the element, you are moving the top left corner of the element to the center of its parent. The center of the element, though, does not line up with the center of its parent. */
+  background: #191919;
+  text-align: center; /*used for aligning the inner content of a block element. In our case, it aligns h1 tag to center*/
+}
+    /*NOTES*/
+/*Assuming the parent element has position: relative;, these four properties
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+} 
+will center a child element both horizontally and vertically inside, no matter what the width of height of either are.
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+[
+  .parent {
+  position: relative;
+}
+.child {
+  @include centerer;
+]*/
+
+.box h1{
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+}
+.box input[type = "text"]{
+  border:0; /*removes border line*/
+  background: none; /*takes color of the form/child element*/
+  display: block;
+  margin: 20px auto;
+  text-align: center; /*centers placeholder text*/
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 400px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;   /* speed on the way in or out depending on it's ease-in or ease-out added : works when you use the snippet(:focus) below after extending the width */
+
+}
+.box input[type = "text"]:focus{
+  width: 480px;  /*makes the content area to extend horizontally when in focus*/
+  border-color: #2ecc71;
+}
+/*NOTES*/
+/*The :focus pseudo class in CSS is used for styling an element that is currently targeted by the keyboard, or activated by the mouse. i.e action that occurs after clicking the area. Here is an example:
+[
+  textarea:focus {
+  background: pink;
+}
+]*/
+
+.box button[type = "submit"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer; /*cursor style*/
+}
+.box button[type = "submit"]:hover{
+  background: #2ecc71;
+}
